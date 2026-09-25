@@ -1,0 +1,179 @@
+.container{
+    display: flex;
+    font-family: "Basier circle", -apple-system, system-ui, "Segoe UI",Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+}
+
+hr {
+    width: 1px;
+    height: 100vh;
+    border: none;
+    background-color: #ccc;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.left{
+    flex: 1;
+    align-self: center;
+    padding: 2rem;
+
+}
+
+.right{
+    flex: 3;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.center{
+  flex: 1
+}
+
+.box{
+    display: flex;
+    align-items: flex-start;
+}
+
+.logo{
+    max-width: 3.6rem;
+    max-height: 3.6rem;
+}
+
+.collage{
+    width: 31.0rem;
+    height: 31.0rem;
+    flex: 1;
+    margin-left: -10rem;
+    margin-top: 1rem;
+    /* use filer instead of box shadow because of the transperent parts of teh image */
+    filter: drop-shadow(rgba(0, 0, 0, 0.24) 0px 3px 8px); 
+}
+
+.form{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   padding: 4rem;
+   box-sizing: border-box;
+}
+
+.heading{
+    font-size: 1.7rem;
+    flex:1;
+    margin-top: 2rem;
+}
+
+h3{
+  font-weight: 500;
+}
+
+.highlight{
+    color: #0060f1;
+    white-space: nowrap;
+}
+
+.inputGroup {
+    position: relative;
+    margin-bottom: 1rem; /* replaces the old margin-bottom*/
+}
+
+.inputGroup input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.8rem 1rem 0.3rem 1rem; 
+    font-size: 0.9rem;
+    height: 3.5rem;           
+    border-radius: 1rem;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.inputGroup input:hover {
+    border: 1px solid #000000;
+}
+
+.inputGroup label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.15s ease all;
+    color: #65676b;
+    pointer-events: none;
+    font-size: 1rem;
+}
+
+.inputGroup input:focus + label,
+.inputGroup input:not(:placeholder-shown) + label {
+    top: 0.6rem;
+    transform: translateY(0);
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.loginBtn{
+  width: 100%;
+  background-color: #0e6eff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.7rem;
+  box-sizing: border-box;
+  color: #f8f9fa;
+  cursor: pointer;
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem ;
+  text-align: center;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  margin-bottom: 0.7rem;
+}
+
+.loginBtn:hover {
+  background-color: #0060f1;
+  color: #fff;
+}
+
+.forgotBtn{
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.7rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  margin-bottom: 1rem;
+}
+
+.forgotBtn:hover {
+  background-color: #f2f2f2;
+  color: #000000;
+}
+
+.newBtn{
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #0060f1;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  padding: 0.7rem;
+  color: #0060f1;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.newBtn:hover {
+  background-color: #f2f2f2;
+}
