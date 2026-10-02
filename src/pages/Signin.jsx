@@ -20,22 +20,26 @@ export default function Signin() {
     const [password, setPassword] = useState("");
 
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
 
-    try {
-        const userCredential = await signup(identifier, password);
+        if (!firstName || !lastName || !day || !month || !year || !gender || !identifier || !password) {
+            setError("Please fill in all fields.");
+            return;
+        }
 
-        await updateProfile(userCredential.user, {
-            displayName: `${firstName} ${lastName}`
-        });
-
-        navigate("/home");
-    } catch (error) {
-        setError(error.message);
-    }
-};
+        try {
+            const userCredential = await signup(identifier, password);
+            await updateProfile(userCredential.user, {
+                displayName: `${firstName} ${lastName}`
+            });
+            navigate("/home");
+        } catch (error) {
+            setError(error.message);
+        }
+    };
+    
     return(
 
     <>
@@ -77,7 +81,7 @@ const handleSubmit = async (e) => {
                             <div className={styles.input}>
                                 <select 
                                 id="day" 
-                                value={day} 
+                                required value={day} 
                                 onChange={(e) => setDay(e.target.value)} >
                                 <option value="">Day</option>
                                 {[...Array(31)].map((_, i) => (
@@ -90,7 +94,7 @@ const handleSubmit = async (e) => {
                             <div className={styles.input}>
                                <select 
                                id="month" 
-                               value={month} 
+                               required value={month} 
                                onChange={(e) => setMonth(e.target.value)} >
                                 <option value="">Month</option>
                                 {["January","February","March","April","May","June","July","August","September","October","November","December"].map((m, i) => (
@@ -103,7 +107,7 @@ const handleSubmit = async (e) => {
                             <div className={styles.input}>
                                <select 
                                id="year" 
-                               value={year} 
+                               required value={year} 
                                onChange={(e) => setYear(e.target.value)}>
                                 <option value="">Year</option>
                                 {[...Array(101)].map((_, i) => {
@@ -120,7 +124,7 @@ const handleSubmit = async (e) => {
                         <div className={styles.inputGroup}>
                             <select 
                             id="gender" 
-                            value={gender} 
+                            required value={gender} 
                             onChange={(e) => setGender(e.target.value)} 
                             className={styles.input}>
                                 <option value="">Select your gender</option>
