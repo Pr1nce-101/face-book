@@ -12,7 +12,8 @@
 .container h1,
 .container p,
 .container form {
-    width: 35rem;
+    width: 100%;
+    max-width: 35rem;
     box-sizing: border-box;
 }
 

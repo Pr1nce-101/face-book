@@ -44,7 +44,6 @@ export default function Login() {
                             type="text" 
                             id="identifier"
                             placeholder=" "
-                            // className={styles.identifierInput}
                             value={identifier}
                             onChange={(e) => setIdentifier(e.target.value)}
                         />
@@ -56,7 +55,6 @@ export default function Login() {
                             type="password"
                             id="password"
                             placeholder=" "
-                            // className={styles.passwordInput}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />

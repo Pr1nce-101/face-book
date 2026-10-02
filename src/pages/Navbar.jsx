@@ -6,6 +6,7 @@ import {
   FaVideo,
   FaUserGroup,
   FaUserPlus,
+  FaMagnifyingGlass,
   FaTableCells,
   FaFacebookMessenger,
   FaBell,
@@ -17,14 +18,15 @@ export default function Navbar() {
 
   return (
     <div>
-        <nav className={styles.topbar}>
-                        <div className={styles.navLeft}>
-                            <img className={styles.logo} src={logo}/>
-                            <div className={styles.searchBar}>
-                                <input type="text" placeholder="Search Facebook" />
-                            </div>
+                <nav className={styles.topbar}>
+                    <div className={styles.navLeft}>
+                        <img className={styles.logo} src={logo}/>
+                        
+                        <div className={styles.searchBar}>
+                            <FaMagnifyingGlass className={styles.searchIconOnly} />
+                            <input type="text" placeholder="Search Facebook" />
                         </div>
-        
+                    </div>
                         <div className={styles.navCenter}>
                             <NavLink
                                 to="/home"
