@@ -35,7 +35,7 @@ export default function Signin() {
             await updateProfile(userCredential.user, {
                 displayName: `${firstName} ${lastName}`
             });
-            navigate("/");
+            navigate("/home");
         } catch (error) {
             setError(error.message);
         }
@@ -48,7 +48,7 @@ export default function Signin() {
             <div className={styles.backBtn}>
                 <button
                     type="button"
-                    onClick={() => navigate("/login")}
+                    onClick={() => navigate("/")}
                 >
                     <FaChevronLeft />
                 </button>
@@ -181,7 +181,7 @@ export default function Signin() {
                         <button 
                         type="button" 
                         className={styles.reloginBtn}
-                        onClick={() => navigate("/login")} >I already have an account</button>  
+                        onClick={() => navigate("/")} >I already have an account</button>  
             </form>
         </div>
         </>

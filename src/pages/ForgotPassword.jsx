@@ -29,7 +29,7 @@ export default function ForgotPassword() {
             <button
                 type="button"
                 className={styles.backBtn}
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/")}
             >
                 <FaChevronLeft />
             </button>
@@ -53,7 +53,7 @@ export default function ForgotPassword() {
                 {message && <p className={styles.success}>{message}</p>}
                 {error && <p className={styles.error}>{error}</p>}
 
-                <button type="submit" className={styles.continueBtn} onClick={()=> navigate("/login")}>Continue</button>
+                <button type="submit" className={styles.continueBtn} onClick={()=> navigate("/")}>Continue</button>
             </form>
         </div>
     </div>
