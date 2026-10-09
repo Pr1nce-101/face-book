@@ -16,7 +16,7 @@ export default function Login() {
             e.preventDefault();
             try {
                 await login(identifier, password);
-                navigate("/home");
+                navigate("/");
             } catch (error) {
                 setError(error.message);
             }
@@ -62,7 +62,7 @@ export default function Login() {
                     </span>
 
                     <button type="submit" className={styles.loginBtn}>Log in</button>
-                    <button type="button" className={styles.forgotBtn}>Forgotten password?</button>
+                    <button type="button" className={styles.forgotBtn} onClick={() => navigate("/ForgotPassword")}>Forgotten password?</button>
                     <button type="button" className={styles.newBtn} onClick={() => navigate("/Signin")}>Create new account</button>
             </form>  
         </div>

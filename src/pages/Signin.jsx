@@ -34,7 +34,7 @@ export default function Signin() {
             await updateProfile(userCredential.user, {
                 displayName: `${firstName} ${lastName}`
             });
-            navigate("/home");
+            navigate("/");
         } catch (error) {
             setError(error.message);
         }
