@@ -29,7 +29,7 @@ export default function ForgotPassword() {
             <button
                 type="button"
                 className={styles.backBtn}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/login")}
             >
                 <FaChevronLeft />
             </button>

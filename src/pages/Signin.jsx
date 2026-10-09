@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { signup } from "../api/auth";
 import { updateProfile } from "firebase/auth";
+import { FaChevronLeft } from "react-icons/fa6";
 
 
 export default function Signin() {
@@ -44,6 +45,14 @@ export default function Signin() {
 
     <>
         <div className={styles.container}>
+            <div className={styles.backBtn}>
+                <button
+                    type="button"
+                    onClick={() => navigate("/login")}
+                >
+                    <FaChevronLeft />
+                </button>
+            </div>
             <h1>Get started on Facebook</h1>
             <p>Create an account to connect with friends, family and communities of people who share your interests.</p>
             <form onSubmit={handleSubmit}>
