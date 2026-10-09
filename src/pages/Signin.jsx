@@ -181,7 +181,7 @@ export default function Signin() {
                         <button 
                         type="button" 
                         className={styles.reloginBtn}
-                        onClick={() => navigate("/")} >I already have an account</button>  
+                        onClick={() => navigate("/login")} >I already have an account</button>  
             </form>
         </div>
         </>
