@@ -11,14 +11,23 @@ export default function Login() {
 
     const [identifier, setIdentifier] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
         const handleSubmit = async (e) => {
             e.preventDefault();
+            setError("");
+
             try {
                 await login(identifier, password);
                 navigate("/home");
-            } catch (error) {
-                setError(error.message);
+            } catch (err) {
+                if (err.code === "auth/invalid-credential" || err.code === "auth/invalid-email") {
+                    setError("The email or password you entered is incorrect.");
+                } else if (err.code === "auth/too-many-requests") {
+                    setError("Too many attempts. Please try again later.");
+                } else {
+                    setError("Something went wrong. Please try again.");
+                }
             }
         };
 
@@ -45,7 +54,8 @@ export default function Login() {
                             id="identifier"
                             placeholder=" "
                             value={identifier}
-                            onChange={(e) => setIdentifier(e.target.value)}
+                            onChange={(e) => { setIdentifier(e.target.value); setError(""); }}
+                            className={error ? styles.invalid : ""}
                         />
                         <label htmlFor="identifier">Email address or mobile number</label>
                     </span>
@@ -56,10 +66,12 @@ export default function Login() {
                             id="password"
                             placeholder=" "
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => { setPassword(e.target.value); setError(""); }}
+                            className={error ? styles.invalid : ""}
                         />
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password</label>   
                     </span>
+                    {error && <p className={styles.errorText}>{error}</p>}
 
                     <button type="submit" className={styles.loginBtn}>Log in</button>
                     <button type="button" className={styles.forgotBtn} onClick={() => navigate("/ForgotPassword")}>Forgotten password?</button>

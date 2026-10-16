@@ -19,7 +19,7 @@ export default function Signin() {
     const [gender, setGender] = useState("");
     const [identifier, setIdentifier] = useState("");
     const [password, setPassword] = useState("");
-
+    const [touched, setTouched] = useState({});
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,6 +40,12 @@ export default function Signin() {
             setError(error.message);
         }
     };
+  
+    const handleBlur = (e) => {
+        setTouched((prev) => ({ ...prev, [e.target.id]: true }));
+    };
+
+    const isInvalid = (name, value) => touched[name] && !value;
     
     return(
 
@@ -65,8 +71,11 @@ export default function Signin() {
                                 type="text" 
                                 required value={firstName} 
                                 id="firstName"
+                                placeholder=" "
                                 onChange={(e) => setFirstName(e.target.value)}
-                                placeholder=" "/>
+                                onBlur={handleBlur}
+                                className={isInvalid("firstName", firstName) ? styles.invalid : ""}
+                                />
                             <label htmlFor="firstName">First Name</label>  
                     </div>      
                 </div>
@@ -78,7 +87,10 @@ export default function Signin() {
                             required value={lastName} 
                             id="lastName"
                             onChange={(e) => setLastName(e.target.value)} 
-                            placeholder=" "/>
+                            placeholder=" "
+                            onBlur={handleBlur}
+                            className={isInvalid("lastName", lastName) ? styles.invalid : ""}
+                            />
                             <label htmlFor="lastName">Surname</label>
                        </div>
                     </div> 
@@ -91,7 +103,10 @@ export default function Signin() {
                                 <select 
                                 id="day" 
                                 required value={day} 
-                                onChange={(e) => setDay(e.target.value)} >
+                                onChange={(e) => setDay(e.target.value)} 
+                                onBlur={handleBlur}
+                                className={isInvalid("day", day) ? styles.invalid : ""}
+                                >
                                 <option value="">Day</option>
                                 {[...Array(31)].map((_, i) => (
                                 <option key={i + 1} value={i + 1}>{i + 1}</option>
@@ -104,7 +119,10 @@ export default function Signin() {
                                <select 
                                id="month" 
                                required value={month} 
-                               onChange={(e) => setMonth(e.target.value)} >
+                               onChange={(e) => setMonth(e.target.value)} 
+                               onBlur={handleBlur}
+                               className={isInvalid("month", month) ? styles.invalid : ""}
+                               >
                                 <option value="">Month</option>
                                 {["January","February","March","April","May","June","July","August","September","October","November","December"].map((m, i) => (
                                 <option key={i} value={i + 1}>{m}</option>
@@ -117,7 +135,10 @@ export default function Signin() {
                                <select 
                                id="year" 
                                required value={year} 
-                               onChange={(e) => setYear(e.target.value)}>
+                               onChange={(e) => setYear(e.target.value)}
+                               onBlur={handleBlur}
+                               className={isInvalid("year", year) ? styles.invalid : ""}
+                               >
                                 <option value="">Year</option>
                                 {[...Array(101)].map((_, i) => {
                                 const y = new Date().getFullYear() - i;
@@ -135,7 +156,9 @@ export default function Signin() {
                             id="gender" 
                             required value={gender} 
                             onChange={(e) => setGender(e.target.value)} 
-                            className={styles.input}>
+                            onBlur={handleBlur}
+                            className={isInvalid("gender", gender) ? styles.invalid : ""}
+                            >
                                 <option value="">Select your gender</option>
                                 {["Male","Female"].map((m, i) => (
                                     <option key={i} value={i + 1}>{m}</option>
@@ -154,6 +177,8 @@ export default function Signin() {
                                     placeholder=" "
                                     required value={identifier}
                                     onChange={(e) => setIdentifier(e.target.value)} 
+                                    onBlur={handleBlur}
+                                    className={isInvalid("identifier", identifier) ? styles.invalid : ""}
                                 />
                                 <label htmlFor="identifier">Mobile number or Email address</label> 
                                 </div>
@@ -170,7 +195,10 @@ export default function Signin() {
                                    required value={password} 
                                    id="password"
                                    onChange={(e) => setPassword(e.target.value)}  
-                                   placeholder=" "/>
+                                   placeholder=" "
+                                   onBlur={handleBlur}
+                                   className={isInvalid("password", password) ? styles.invalid : ""}
+                                   />
                                 <label htmlFor="password">Password</label> 
                                 </div>
                             </div>  

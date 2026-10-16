@@ -152,6 +152,20 @@ h3{
     color: #999;
 }
 
+.inputGroup input.invalid {
+    border: 1px solid #ff3b30;
+}
+
+.inputGroup input.invalid + label {
+    color: #ff3b30;
+}
+
+.errorText {
+    color: #ff3b30;
+    font-size: 0.9rem;
+    margin: 0 0 0.75rem;
+}
+
 .loginBtn{
   width: 100%;
   background-color: #0e6eff;
